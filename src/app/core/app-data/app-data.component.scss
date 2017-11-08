@@ -104,11 +104,15 @@
           width: 100%;
           resize: none;
           vertical-align: baseline;
+          background: transparent;
+          border: 0.5px solid black;
         }
       }
       input[type=text], select {
         width: 200px;
         height: 50px;
+        background: transparent;
+        border: 0.5px solid black;
       }
     }
     button {

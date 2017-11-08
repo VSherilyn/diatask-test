@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonPipesModule } from '../../common/pipes/common-pipes.module';
 
 import { AppDataComponent } from './app-data.component';
 
@@ -11,7 +12,8 @@ import { AppDataComponent } from './app-data.component';
     CommonModule,
     RouterModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CommonPipesModule
   ],
   declarations: [
     AppDataComponent

@@ -20,6 +20,11 @@
       &:hover, &.active {
         color: $main;
       }
+      &.empty {
+        color: $background;
+        cursor: default;
+        opacity: 0.4;
+      }
     }
   }
 }

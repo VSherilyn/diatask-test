@@ -1,0 +1,9 @@
+@import "./common/scss/colors";
+@import "./common/scss/variables";
+@import "./common/scss/index";
+
+.main-wrapper {
+  padding: 40px 0;
+  background: $background;
+  min-height: calc(100vh - 33px);
+}
