@@ -1,0 +1,60 @@
+@import "../../common/scss/colors";
+@import "../../common/scss/variables";
+@import "../../common/scss/index";
+
+.c-data {
+  h2 {
+    margin-bottom: 25px;
+  }
+  table {
+    th {
+      font-weight: 700;
+      text-align: left;
+      padding-right: 5px;
+    }
+    td {
+      padding: 20px 10px 20px 0;
+      vertical-align: top;
+      &:nth-of-type(2) {
+        min-width: 100px;
+      }
+      &:nth-of-type(6) {
+        padding-right: 30px;
+      }
+    }
+  }
+  form {
+    fieldset {
+      display: inline-block;
+      vertical-align: baseline;
+      &.textarea-field {
+        display: block;
+        margin-top: 20px;
+        label {
+          display: block;
+        }
+        textarea {
+          height: 200px;
+          width: 100%;
+          resize: none;
+          vertical-align: baseline;
+        }
+      }
+      input[type=text], select {
+        width: 200px;
+        height: 50px;
+      }
+    }
+    button {
+      background-color: $main;
+      color: black;
+      border: 1px solid $main;
+      transition: 0.3s;
+      padding: 10px 20px;
+      cursor: pointer;
+      &:hover {
+        border-color: black;
+      }
+    }
+  }
+}
