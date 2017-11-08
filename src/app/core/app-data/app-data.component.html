@@ -1,26 +1,33 @@
 <div class="c-data">
   <div class="container">
     <h2>Tasks: {{(appDataService.tasksStream | async).length}}</h2>
-    <table>
-      <tr>
-        <th></th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>ETA</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Priority</th>
-      </tr>
-      <tr *ngFor="let task of (appDataService.tasksStream | async); let $index = index">
-        <td>{{$index + 1}}.</td>
-        <td>{{task.create_date}}</td>
-        <td>{{task.state}}</td>
-        <td>{{task.estimate}}</td>
-        <td>{{task.title}}</td>
-        <td>{{task.description}}</td>
-        <td>{{task.priority}}</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>ETA</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Priority</th>
+        </tr>
+        <tr *ngFor="let task of (appDataService.tasksStream | async) | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td>{{task.id}}.</td>
+          <td>{{task.create_date}}</td>
+          <td>{{task.state}}</td>
+          <td>{{task.estimate}}</td>
+          <td>{{task.title}}</td>
+          <td>{{task.description}}</td>
+          <td>{{task.priority}}</td>
+          <td class="remove">
+            <span (click)="toggleModal(task.id - 1)">Remove</span>
+          </td>
+        </tr>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
     <form #newTaskForm="ngForm" (ngSubmit)="addNewTask(newTaskForm)">
       <fieldset>
         <label for="estimate">Estimate:</label>
@@ -60,5 +67,10 @@
       </fieldset>
       <button type="submit">Add</button>
     </form>
+    <div class="modal-window" *ngIf="visibleModal">
+      <p>Are you sure you wanna remove this task?</p>
+      <button (click)="removeTask($event)">Yes</button>
+      <button (click)="toggleModal()">No</button>
+    </div>
   </div>
 </div>

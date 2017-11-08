@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-import { NgxPaginationModule } from 'ngx-pagination';
-
 import { CommonServicesModule } from './common/services/common-services.module';
 
 import { AppComponent } from './app.component';
@@ -27,8 +25,7 @@ import { ROUTES } from './app.routes';
     CommonServicesModule,
     RouterModule.forRoot(ROUTES),
     HttpModule,
-    JsonpModule,
-    NgxPaginationModule
+    JsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
